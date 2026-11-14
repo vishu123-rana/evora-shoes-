@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 import { ShoeImage } from './ShoeImage';
-import { RetroJordanShowcase } from './RetroJordanShowcase';
 import { Product, ProductColor } from '../types';
 import heroShoeImage from '../assets/images/regenerated_image_1791177634545.png';
 import walkingCategoryHeroImg from '../assets/images/gemini_generated_image_r5rvafr5rvafr5rv.png';
@@ -52,8 +51,6 @@ export const HeroSection: React.FC = () => {
     isInWishlist,
     showToast
   } = useStore();
-
-  const [heroMode, setHeroMode] = useState<'retro' | 'atelier'>('retro');
 
   // Curate showcase shoe models with photorealistic color variants
   const showcaseShoes: ShowcaseShoeItem[] = React.useMemo(() => [
@@ -325,30 +322,6 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* View Mode Toggle: Jordan Retro High vs Atelier Performance */}
-            <div className="flex items-center gap-1 p-1 bg-black/5 rounded-2xl border border-black/10">
-              <button
-                onClick={() => setHeroMode('retro')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 cursor-pointer ${
-                  heroMode === 'retro'
-                    ? 'bg-[#DC2626] text-white shadow-sm'
-                    : 'text-gray-700 hover:text-black'
-                }`}
-              >
-                <span>🔥 RETRO HIGH '85</span>
-              </button>
-              <button
-                onClick={() => setHeroMode('atelier')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 cursor-pointer ${
-                  heroMode === 'atelier'
-                    ? 'bg-[#111111] text-white shadow-sm'
-                    : 'text-gray-700 hover:text-black'
-                }`}
-              >
-                <span>ATELIER LINEUP</span>
-              </button>
-            </div>
-
             {/* Top Navigation Links */}
             <nav className="flex flex-wrap items-center gap-1 sm:gap-2 lg:gap-4 text-xs font-bold uppercase tracking-wider text-gray-700">
               <button
@@ -394,16 +367,10 @@ export const HeroSection: React.FC = () => {
             </nav>
           </div>
 
-          {/* Conditional Rendering: Retro Jordan Poster Showcase vs Classic Atelier */}
-          {heroMode === 'retro' ? (
-            <div className="py-4 my-auto">
-              <RetroJordanShowcase />
-            </div>
-          ) : (
-            /* ------------------------------------------------------------- */
-            /* MAIN SHOWCASE ARENA: 3-Column Grid + Static Shoe Showcase */
-            /* ------------------------------------------------------------- */
-            <div className="relative py-8 sm:py-12 lg:py-16 my-auto">
+          {/* ------------------------------------------------------------- */}
+          {/* MAIN SHOWCASE ARENA: 3-Column Grid + Static Shoe Showcase */}
+          {/* ------------------------------------------------------------- */}
+          <div className="relative py-8 sm:py-12 lg:py-16 my-auto">
             
             {/* Oversized Background Typography: "EVORA" Watermark */}
             <div 
@@ -671,7 +638,6 @@ export const HeroSection: React.FC = () => {
             </div>
 
           </div>
-          )}
 
           {/* ------------------------------------------------------------- */}
           {/* PANEL FOOTER: Model Selector Tabs + Trust Badges */}
