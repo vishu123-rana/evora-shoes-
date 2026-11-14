@@ -1,0 +1,6 @@
+{
+  "name": "EVORA — Every Step, Every Generation | Footwear",
+  "description": "EVORA sells footwear for Men, Women, Kids and Unisex with 24/7 AI shopping assistance, size guidance, smart recommendations and secure admin management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
